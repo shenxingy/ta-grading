@@ -16,9 +16,9 @@
 
 ## I. Workflow
 
-1. **AI Static Analysis** — Inspect logic, structure, code quality, and technical
+1. **Code Review** — Inspect logic, structure, code quality, and technical
    requirements defined in the assignment description.
-2. **Manual Review** — Verify UI fidelity against Figma designs, assess interaction
+2. **Visual Review** — Verify UI fidelity against Figma designs, assess interaction
    flow and usability.
 
 ---
