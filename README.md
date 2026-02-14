@@ -1,41 +1,96 @@
 # TA Grading
 
-A structured grading framework for student programming assignments. Provides a reusable rubric, organized directory structure, and templates for consistent and fair grading across assignments.
+A structured grading framework for student programming assignments, designed to work with [Claude Code](https://docs.anthropic.com/en/docs/claude-code) (or any AI coding assistant that reads project-level instructions).
 
-## How It Works
+It provides a reusable rubric, organized directory structure, and templates to help TAs grade consistently, fairly, and efficiently.
 
-1. Place assignment requirements and reference materials in `hw{N}/`
-2. Clone or copy student submissions into `hw{N}/submissions/`
-3. Review code against the rubric and assignment requirements
-4. Run and test the submission, compare against expected output
-5. Record grades in `hw{N}/grades.md`
+## Why Use This?
+
+- **Consistency** — A shared rubric ensures every student is graded by the same standards
+- **Speed** — AI reviews code structure and logic; you focus on manual testing and edge cases
+- **Transparency** — Students get clear, constructive feedback with rubric-aligned deductions
+- **Reusability** — Same framework works across assignments and semesters
+
+## Prerequisites
+
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI (or another AI assistant that supports project-level config files)
+- Git (for cloning student repos)
+
+## Quick Start
+
+```bash
+# 1. Clone this repo
+git clone https://github.com/shenxingy/ta-grading.git
+cd ta-grading
+
+# 2. Set up environment variables (if your assignments need API keys)
+cp api-keys.env.example api-keys.env
+# Edit api-keys.env with your actual keys
+
+# 3. Create your first assignment
+cp -r hw-example hw1
+
+# 4. Add assignment materials
+#    - Put the assignment spec in hw1/requirements/
+#    - Put expected output, screenshots, etc. in hw1/reference/
+
+# 5. Clone a student submission
+git clone <student-repo-url> hw1/submissions/student-name/repo
+
+# 6. Open Claude Code and start grading
+claude
+> Grade the submission in hw1/submissions/student-name/
+```
 
 ## Project Structure
 
 ```
 ta-grading/
-├── grading-rubric.md        # Universal rubric (50 pts)
+├── CLAUDE.md                # AI assistant instructions (read automatically by Claude Code)
+├── grading-rubric.md        # Universal rubric — customize for your course
 ├── api-keys.env.example     # Environment variable template
 ├── templates/
-│   └── grade-template.md    # Grade table template
-└── hw{N}/                   # Per-assignment directory
-    ├── requirements/        # Assignment spec
-    ├── reference/           # Expected output, screenshots, etc.
-    ├── submissions/         # Student submissions (gitignored)
-    └── grades.md            # Final grades
+│   └── grade-template.md    # Grade table template for recording results
+└── hw{N}/                   # One directory per assignment
+    ├── requirements/        # Assignment spec, instructions
+    ├── reference/           # Expected output, design mockups, sample solutions
+    ├── submissions/         # Student submissions (gitignored — never committed)
+    │   └── {student}/
+    │       ├── repo/        # Cloned student code
+    │       └── run.sh       # One-command setup & run script
+    └── grades.md            # Final grades (copy from templates/grade-template.md)
 ```
 
-## Setup
+## Customization
 
-```bash
-cp api-keys.env.example api-keys.env
-# Fill in any required environment variables
-```
+This framework is designed to be adapted to your course. Here's what to change:
 
-## Usage
+### Rubric (`grading-rubric.md`)
 
-1. Copy `hw-example/` to `hw1/` (or `hw2/`, etc.)
-2. Add the assignment spec to `hw1/requirements/`
-3. Add expected output or reference materials to `hw1/reference/`
-4. Clone each student's repo into `hw1/submissions/{student}/`
-5. Grade using `grading-rubric.md` and record results in `hw1/grades.md`
+- **Point totals** — Default is 50 pts. Change the category weights to match your syllabus.
+- **Categories** — The default 4 categories (Follows Directions, Quality, Required Function, Timeliness) work for most programming courses. Add or remove as needed.
+- **Deduction ranges** — Adjust severity to match your course expectations.
+- **Score target** — The default philosophy is generous (45-50 range). Tighten or loosen as appropriate.
+
+### AI Instructions (`CLAUDE.md`)
+
+This file is read automatically by Claude Code when you open the project. Customize it to:
+
+- Describe your course's tech stack (e.g., "Python + Flask", "Java + Spring Boot", "React + TypeScript")
+- Add course-specific grading notes or conventions
+- Specify how to run student projects in your environment
+
+### Environment Variables (`api-keys.env`)
+
+If your assignments require API keys (e.g., weather APIs, database credentials), add them here. The `.gitignore` ensures they are never committed.
+
+## Tips
+
+- **Never commit student work** — The `.gitignore` excludes `hw*/submissions/` by default. Keep it that way.
+- **Use `run.sh` scripts** — For each submission, create a `run.sh` that installs deps and starts the project. This makes manual review fast and reproducible.
+- **Grade in batches** — Open Claude Code, point it at a submission, and let it do the code review. Then do your manual testing. Record results in `grades.md`.
+- **Keep feedback constructive** — Explain *why* points were deducted and suggest improvements. Students learn more from good feedback than from a number.
+
+## License
+
+MIT

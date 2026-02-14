@@ -1,5 +1,9 @@
 # TA Grading Project
 
+<!-- This file is read automatically by Claude Code (or compatible AI assistants).
+     It provides context and instructions for AI-assisted grading.
+     Customize the sections below to match your course. -->
+
 This project is for grading student programming assignments.
 
 ## Project Structure
@@ -17,11 +21,11 @@ ta-grading/
 
 ## Grading Workflow
 
-1. Read the rubric and assignment requirements in `hw{N}/requirements/`
+1. Read the rubric (`grading-rubric.md`) and assignment requirements in `hw{N}/requirements/`
 2. Review reference materials (expected output, screenshots, etc.) in `hw{N}/reference/`
-3. Clone or copy student submission into `hw{N}/submissions/{student-name}/`
-4. Review code, run the project if needed, compare against requirements
-5. Record grades in `hw{N}/grades.md`
+3. Review the student's code in `hw{N}/submissions/{student}/repo/`
+4. Run the project if needed, compare against requirements and reference materials
+5. Produce a grade with feedback following the rubric format
 
 ## Grading Philosophy
 
@@ -33,7 +37,7 @@ ta-grading/
 
 ## Environment Variables
 
-If assignments require external APIs or credentials, store them in `api-keys.env` at the project root.
+If assignments require external APIs or credentials, they are stored in `api-keys.env` at the project root.
 If a student uses environment variables, set them before running:
 
 ```bash
@@ -53,3 +57,11 @@ After cloning a student's repo, prepare it so the TA can easily run and test:
    - Injects any required environment variables
    - Starts the project
 4. Goal: TA runs `bash run.sh` and can immediately test the submission
+
+<!-- Add your course-specific notes below this line -->
+<!-- Example:
+## Tech Stack
+- Python 3.11+ with Flask
+- Frontend: vanilla HTML/CSS/JS
+- Database: SQLite
+-->
