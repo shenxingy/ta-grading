@@ -18,8 +18,8 @@
 
 1. **Code Review** — Inspect logic, structure, code quality, and technical
    requirements defined in the assignment description.
-2. **Visual Review** — Verify UI fidelity against Figma designs, assess interaction
-   flow and usability.
+2. **Output Review** — Verify output against expected results, assess correctness
+   and usability.
 
 ---
 
@@ -32,18 +32,18 @@ Compliance with administrative, structural, and submission requirements.
 | Issue | Deduction | Notes |
 |-------|-----------|-------|
 | Naming violation | -1 to -2 | Files/folders don't follow the specified naming convention. If the intent is clear and everything works, lean toward -1. |
-| Documentation issues | -2 to -3 | Missing or incomplete README.md that prevents smooth setup/execution. |
+| Documentation issues | -2 to -3 | Missing or incomplete README that prevents smooth setup/execution. |
 | Submission error | -5 | Wrong platform, invalid repo link, or inaccessible work. |
 
 ### 2. Quality (15 pts)
 
-Application robustness, UI accuracy, and professional engineering standards.
+Code robustness, output accuracy, and professional engineering standards.
 
 | Issue | Deduction | Notes |
 |-------|-----------|-------|
-| Critical failure | -10 to -15 | App crashes on launch or core interactions consistently fail. |
-| UI/UX mismatch | -3 to -8 | Think of this like industry: the designer hands you a Figma, you implement it. Technical differences are fine, pixel-perfect is not required, but **all Figma elements must be present** and the page should look roughly the same at a glance. Missing a whole card/section from the Figma is a functional gap, not just a style issue. Minor layout or color differences are acceptable. Using different but functionally equivalent controls (e.g., list vs dropdown) is a minor deviation only. |
-| Code fragility | -2 to -5 | Lack of basic error handling, improper state management, or fragile logic. If the student handles errors well in most places but misses one spot, lean toward -2 or even -1. |
+| Critical failure | -10 to -15 | Program crashes on launch or core functionality consistently fails. |
+| Output mismatch | -3 to -8 | Output deviates significantly from the expected results or specification. Minor differences are acceptable; missing entire required components is a functional gap. |
+| Code fragility | -2 to -5 | Lack of basic error handling, poor structure, or fragile logic. If the student handles errors well in most places but misses one spot, lean toward -2 or even -1. |
 
 ### 3. Required Function (25 pts)
 
@@ -53,7 +53,7 @@ Completion and correctness of the assignment's core engineering objectives.
 |-------|-----------|-------|
 | Missing feature | -5 to -10 per item | A required feature is not implemented at all. |
 | Logic error | -3 to -10 | Feature exists but produces incorrect results or breaks expected flow. If the approach is sound but has a small bug, lean toward -3. |
-| Hardcoding | -5 | Static values where dynamic computation/rendering is required. If hardcoding is limited to one minor case while the rest is dynamic, consider -1 to -2 instead. |
+| Hardcoding | -5 | Static values where dynamic computation is required. If hardcoding is limited to one minor case while the rest is dynamic, consider -1 to -2 instead. |
 
 ### 4. Timeliness (5 pts)
 
@@ -68,8 +68,8 @@ Completion and correctness of the assignment's core engineering objectives.
 ## III. Grading Guidelines
 
 - **Demonstrated mastery > surface perfection.** A student who clearly understands
-  React component composition but has a minor prop-naming inconsistency should not
-  be penalized the same as one who doesn't understand components at all.
+  the core concepts but has a minor naming inconsistency should not be penalized
+  the same as one who doesn't understand the concepts at all.
 - **Context matters.** Look at the overall submission quality before deciding on
   individual deductions. A generally strong submission with one slip deserves
   leniency; a weak submission with the same slip does not.
@@ -85,4 +85,4 @@ Completion and correctness of the assignment's core engineering objectives.
 For each student, provide:
 1. A list of concrete issues found
 2. Point deductions aligned with this rubric
-3. Clear, constructive feedback in English
+3. Clear, constructive feedback
